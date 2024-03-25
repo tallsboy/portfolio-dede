@@ -1,5 +1,5 @@
 :root {
-  --bg: #16d6f8;
+  --bg: #87cefa;
   --black: #232327;
 }
 
@@ -15,7 +15,6 @@ body {
   font-family: "Courier Prime", monospace;
   background-color: var(--bg);
   color: #fff;
-  min-height: 5000px;
 }
 
 /* navbar */
@@ -30,6 +29,7 @@ body {
   left: 0;
   right: 0;
   z-index: 9999;
+  background-color: transparent;
 }
 
 .navbar .navbar-log {
@@ -82,11 +82,12 @@ body {
 
 /* hero */
 .hero {
+  background-color: #48d1cc;
   min-height: 100vh;
   padding: 23rem 14rem;
 }
 
-.content {
+.hero .content {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -166,7 +167,8 @@ body {
 /* hero and */
 
 /* menu project */
-.project {
+.project,
+.contact {
   min-height: 100vh;
   padding: 100px 7% 16px;
 }
@@ -186,16 +188,66 @@ body {
 /* contact start */
 .contact .row {
   display: flex;
-  background-color: #7e7e835d;
+  background-color: #0b0b105d;
   margin-top: 10px;
-  flex-wrap: wrap;
 }
-.contact .row .map {
-  flex: 1 1 500px;
+
+.contact .row form {
+  flex: 1 1 100px;
+  padding: 20px 30px 10px;
+  text-align: center;
+}
+.contact .row form .input-grup {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  background-color: #e0ffff;
+  border: 2px solid var(--black);
+  border-radius: 10px;
+  padding: 16px;
+}
+.contact .row form .input-grup input,
+textarea {
   width: 100%;
-  object-fit: cover;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  background: none;
+}
+.contact .row form .btn {
+  padding: 16px 20px;
+  margin-top: 23px;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: #1e90ff;
+}
+.contact .row form .btn:hover {
+  color: var(--bg);
+}
+.contact .row form .input-grup .icon {
+  color: #1e90ff;
+}
+::placeholder {
+  color: #6fb0f1;
 }
 /* contact end */
+
+/* footer start */
+footer {
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+/* footer end */
 
 /* media queris */
 
@@ -249,6 +301,9 @@ body {
   .navbar .navbar-nav a:hover::after {
     transform: scaleX(0.4);
   }
+  .hero {
+    padding: 15rem 7rem;
+  }
 }
 
 /* hp */
@@ -256,22 +311,40 @@ body {
   html {
     font-size: 55%;
   }
-  .content {
-    justify-content: space-around;
+  .wave {
+    display: none;
   }
-  .content .content-wrapper {
-    top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .hero {
+    background-color: transparent;
+    width: 100%;
+    padding: 20rem 10rem; /* Ubah padding sesuai kebutuhan */
   }
-  .content .content-wrapper .content-text h2 {
-    line-height: 1;
-    font-size: 90%;
+
+  .content-wrapper {
+    flex-direction: column; /* Mengubah tata letak ke flex column */
+    text-align: center; /* Pusatkan teks */
   }
-  .content .content-wrapper .content-text p {
+
+  .content-text {
+    margin-top: 10px; /* Sesuaikan margin sesuai kebutuhan */
+  }
+  .contact,
+  .hero {
+    padding: none;
+    min-height: 0;
+  }
+  .contact .row,
+  .contact h2,
+  .hero,
+  .contact p {
+    position: relative;
+    left: 3rem;
+  }
+  .contact p {
     padding: 20px;
-    font-size: 80%;
-    border-right: none;
+    max-width: 80%;
+  }
+  footer {
+    width: 111%;
   }
 }
